@@ -3,6 +3,7 @@ package com.poo.hospital.entidades;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,15 +16,15 @@ public class Atendimento {
     private int id;
     private Paciente paciente;
     private Medico medico;
+    private LocalDateTime dataHora;
 
-    private static List<String> atendimentoList = new ArrayList<String>();
+    private static List<Atendimento> atendimentoList = new ArrayList<>();
 
-    public Atendimento(int id, Paciente paciente, Medico medico, List<String> atendimentoList) {
+    public Atendimento(int id, Paciente paciente, Medico medico) {
         this.id = id;
         contadorId ++;
         this.paciente = paciente;
         this.medico = medico;
-        this.atendimentoList = atendimentoList;
     }
 
     public Atendimento(){
@@ -42,7 +43,7 @@ public class Atendimento {
         Paciente paciente = new Paciente();
         paciente.setNome(nomePaciente);
         atendimento.setPaciente(paciente);
-        atendimentoList.add(nomePaciente);
+        
 
         System.out.println("Digite o nome do médico: ");
         String nomeMedico = sc.nextLine();
@@ -50,7 +51,20 @@ public class Atendimento {
         medico.setNome(nomeMedico);
         Medico.getMedicoList().add(medico);
         atendimento.setMedico(medico);
-        atendimentoList.add(nomeMedico);
 
+        atendimento.setDataHora(LocalDateTime.now());
+
+        atendimentoList.add(atendimento);
+    }
+
+    public static void listarAtendimento(){
+        for(Atendimento atendimento : atendimentoList){
+            System.out.println("ID: " + atendimento.getId());
+            System.out.println("Nome do paciente: " + atendimento.getPaciente().getNome());
+            System.out.println("Nome do médico: " + atendimento.getMedico().getNome());
+            System.out.println("Data e hora: " + atendimento.getDataHora());
+
+
+        }
     }
 }
