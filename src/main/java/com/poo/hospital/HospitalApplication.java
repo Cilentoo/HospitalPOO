@@ -12,6 +12,7 @@ public class HospitalApplication {
 		SpringApplication.run(HospitalApplication.class, args);
 
 		Atendimento.registroAtendimento();
+		Atendimento.listarAtendimento();
 	}
 
 }
