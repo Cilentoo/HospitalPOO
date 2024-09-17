@@ -66,6 +66,8 @@ public class Atendimento {
             System.out.println("Erro. Medico não encontrado.");
         }
 
+        Medico.getMedicoList().add(medicoLogado);
+
         atendimento.setDataHora(LocalDateTime.now());
 
         atendimentoList.add(atendimento);
