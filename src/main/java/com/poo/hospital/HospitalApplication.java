@@ -1,10 +1,6 @@
 package com.poo.hospital;
 
-import com.poo.hospital.entidades.Atendimento;
-import com.poo.hospital.entidades.Medico;
-import com.poo.hospital.entidades.MedicoEspecialista;
-import com.poo.hospital.entidades.Paciente;
-import com.poo.hospital.entidades.PopulaSistema;
+import com.poo.hospital.entidades.*;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,8 +13,10 @@ public class HospitalApplication {
 		SpringApplication.run(HospitalApplication.class, args);
 
 		PopulaSistema.populaDados();
+		Menu.menuIncial();
+
 		//Atendimento.registroAtendimento();
-		Atendimento.listarAtendimento();
+		//Atendimento.listarAtendimento();
 		//Medico.registraAtendimento();
 		//Medico.solicitarExame();
 		//MedicoEspecialista.analisarExame();

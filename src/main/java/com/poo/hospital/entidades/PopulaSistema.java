@@ -11,6 +11,8 @@ public class PopulaSistema {
     Paciente paciente1 = new Paciente();
     paciente1.setNome("Carlos Souza");
     paciente1.setCarteiraSus("123456789");
+    paciente1.setLogin("carl@gamil.com");
+    paciente1.setSenha("123@!M");
 
     Paciente paciente2 = new Paciente();
     paciente2.setNome("Ana Oliveira");
@@ -29,6 +31,8 @@ public class PopulaSistema {
     Medico medico1 = new Medico();
     medico1.setNome("Dr. João Lima");
     medico1.setCrm("CRM12345");
+    medico1.setLogin("med@gmail.com");
+    medico1.setSenha("123@!M");
 
     Medico medico2 = new Medico();
     medico2.setNome("Dra. Maria Clara");
@@ -36,6 +40,14 @@ public class PopulaSistema {
 
     Medico.getMedicoList().add(medico1);
     Medico.getMedicoList().add(medico2);
+
+
+    MedicoEspecialista me1 = new MedicoEspecialista();
+    me1.setNome("Dr. Luiz Carlos");
+    me1.setCrm("CRM87421");
+    me1.setEspecialidade("Ortopedista");
+    me1.setLogin("lc@gmail.com");
+    me1.setSenha("123@!M");
 
     // Criando atendimentos
     Atendimento atendimento1 = new Atendimento(Atendimento.contadorId, paciente1, medico1);
@@ -66,9 +78,9 @@ public class PopulaSistema {
     atendimento2.getExames().add(exame2);
 
     // Exibindo prontuários
-    paciente1.imprimirProntuario();
-    paciente2.imprimirProntuario();
-    paciente3.imprimirProntuario();
+    //paciente1.imprimirProntuario();
+    //paciente2.imprimirProntuario();
+    //paciente3.imprimirProntuario();
     }
 
 }
