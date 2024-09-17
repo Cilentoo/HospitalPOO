@@ -24,10 +24,8 @@ public class Paciente extends Pessoa implements Prontuario {
     public static List<Paciente> getPacienteList(){
         return  pacienteList;
     }
-<<<<<<< HEAD
     //teste
 }
-=======
     public static Paciente buscarCarteiraDoSus (String numeroSus){
 
         for (Paciente paciente: pacienteList){
@@ -39,4 +37,3 @@ public class Paciente extends Pessoa implements Prontuario {
         return null;
     }
 }
->>>>>>> 4dbb4cfc1da1e8ceb333368766c19a53d36c0f9f
