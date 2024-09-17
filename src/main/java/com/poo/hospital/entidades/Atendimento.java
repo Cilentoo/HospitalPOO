@@ -34,14 +34,21 @@ public class Atendimento {
     }
 
     public Atendimento(){
-        this.id = contadorId;
+        this.id = contadorId++;
         contadorId++;
+        this.exames = new ArrayList<>();
+    }
+
+    public static List<Atendimento> getAtendimentoList() {
+        return atendimentoList;
     }
 
     //registrando manualmente o atendimento
     public static void registroAtendimento(){
         Atendimento atendimento = new Atendimento();
-        System.out.println("Registrando atendimento: ");
+        System.out.println("\n=============================================");
+        System.out.println("|         * REGISTRO DE ATENDIMENTO *         |");
+        System.out.println("-----------------------------------------------");
         System.out.println("Digite o nome do paciente: ");
         Scanner sc = new Scanner(System.in);
         String nomePaciente = sc.nextLine();
@@ -60,6 +67,10 @@ public class Atendimento {
         atendimento.setDataHora(LocalDateTime.now());
 
         atendimentoList.add(atendimento);
+
+        System.out.println("\n---------------------------------------------");
+        System.out.println("|     Atendimento registrado com sucesso!     |");
+        System.out.println("=============================================\n");
     }
 
     public static void listarAtendimento(){
@@ -79,6 +90,5 @@ public class Atendimento {
             }
         }
         return atendimentoPaciente;
-    } 
-    
+    }  
 }

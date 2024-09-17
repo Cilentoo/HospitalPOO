@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 
 public class MedicoEspecialista {
-    private String especiliade;
+    private String especialidade;
     private String crm;
     private Exame exame;
 
@@ -21,9 +21,14 @@ public class MedicoEspecialista {
     public static List <MedicoEspecialista> eList = new ArrayList<>();
 
     public static void analisarExame(){
-        System.out.println("Exame analisado");
+        System.out.println("\n=============================================");
+        System.out.println("|              * ANÁLISE DE EXAME *           |");
+        System.out.println("-----------------------------------------------");
+        //System.out.println("Exame sendo analisado por: " + ;  
         Exame exame = new Exame();
         exame.setStatus(Status.CONCLUIDO);
-
+        System.out.println("\n---------------------------------------------");
+        System.out.println("|          Exame analisado econcluído!        |");
+        System.out.println("=============================================\n");
     }
 }
