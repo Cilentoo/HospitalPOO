@@ -16,8 +16,11 @@ public class Exame {
     private Medico medicoSolicitante;
     private MedicoEspecialista medicoLaudo;
     private String descricao;
-
+    private String laudo;
+    private int id;
+    
     public static List <Exame> exameList = new ArrayList<Exame> ();
+
 
     public static List<Exame> getExameList() {
         return exameList;
