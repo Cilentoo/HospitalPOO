@@ -12,13 +12,17 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class MedicoEspecialista {
+public class MedicoEspecialista extends Pessoa {
     private String especialidade;
     private String crm;
     private Exame exame;
 
 
     public static List <MedicoEspecialista> eList = new ArrayList<>();
+
+    public static List<MedicoEspecialista> geteList() {
+        return eList;
+    }
 
     public static void analisarExame(){
         System.out.println("\n=============================================");
