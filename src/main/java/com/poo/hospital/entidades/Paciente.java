@@ -24,5 +24,14 @@ public class Paciente extends Pessoa implements Prontuario {
     public static List<Paciente> getPacienteList(){
         return  pacienteList;
     }
+    public static Paciente buscarCarteiraDoSus (String numeroSus){
 
+        for (Paciente paciente: pacienteList){
+            if (paciente.getCarteiraSus().equals(numeroSus)) {
+               return paciente; 
+            }
+
+        }
+        return null;
+    }
 }
