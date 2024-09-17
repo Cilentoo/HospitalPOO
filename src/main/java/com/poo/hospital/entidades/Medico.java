@@ -60,5 +60,27 @@ public class Medico extends Pessoa implements Prontuario {
         return medicoList;
     }
 
+    public static void solicitarExame(){
+
+        Scanner leia =new Scanner(System.in);
+        System.out.println("Escreva o numero do Sus: " );
+        String numeroSus = leia.nextLine();
+        Paciente paciente = Paciente.buscarCarteiraDoSus(numeroSus);
+
+        if (paciente != null) {
+            Exame exame = new Exame();
+            exame.setStatus(null);
+            exame.setMedicoSolicitante(null);
+            exame.setMedicoLaudo(null);
+            for (Atendimento atendimento : Atendimento.getAtendimentoPorPaciente(paciente)){
+                if (atendimento.getMedico().equals(null)){
+                    atendimento.getExames().add(exame);
+                    System.out.println("Pedido de exame aceito");
+                    break;
+                }
+            }
+        }
+        
+    }
 
 }
