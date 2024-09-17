@@ -24,5 +24,5 @@ public class Paciente extends Pessoa implements Prontuario {
     public static List<Paciente> getPacienteList(){
         return  pacienteList;
     }
-
+    //teste
 }
