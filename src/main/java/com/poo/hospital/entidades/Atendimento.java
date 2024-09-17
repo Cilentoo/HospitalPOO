@@ -49,16 +49,19 @@ public class Atendimento {
         System.out.println("\n=============================================");
         System.out.println("|         * REGISTRO DE ATENDIMENTO *         |");
         System.out.println("-----------------------------------------------");
+        System.out.println("Digite o numero da carteira do paciente: ");
+        Scanner leia = new Scanner(System.in);
+        String numeroSus = leia.nextLine();
         System.out.println("Digite o nome do paciente: ");
-        Scanner sc = new Scanner(System.in);
-        String nomePaciente = sc.nextLine();
+        String nomePaciente = leia.nextLine();
         Paciente paciente = new Paciente();
+        paciente.setCarteiraSus(numeroSus);
         paciente.setNome(nomePaciente);
         atendimento.setPaciente(paciente);
         
 
         System.out.println("Digite o nome do médico: ");
-        String nomeMedico = sc.nextLine();
+        String nomeMedico = leia.nextLine();
         Medico medico = new Medico();
         medico.setNome(nomeMedico);
         Medico.getMedicoList().add(medico);
@@ -75,10 +78,14 @@ public class Atendimento {
 
     public static void listarAtendimento(){
         for(Atendimento atendimento : atendimentoList){
+            System.out.println("\n=============================================");
+            System.out.println("|    * ATENDIMENTOS REALIZADOS NA UNIDADE *   |");
+            System.out.println("-----------------------------------------------");
             System.out.println("ID: " + atendimento.getId());
             System.out.println("Nome do paciente: " + atendimento.getPaciente().getNome());
             System.out.println("Nome do médico: " + atendimento.getMedico().getNome());
             System.out.println("Data e hora: " + atendimento.getDataHora());
+            System.out.println("------------------------------------------------\n");
         }
     }
 

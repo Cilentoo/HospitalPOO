@@ -71,8 +71,8 @@ public class Medico extends Pessoa implements Prontuario {
     public static void solicitarExame(){
 
         Scanner leia =new Scanner(System.in);
-        System.out.println("\n=============================================");
-        System.out.println("|              * SOLICITAR EXAME *           |");
+        System.out.println("\n===============================================");
+        System.out.println("|             * SOLICITAR EXAME *             |");
         System.out.println("-----------------------------------------------");
         System.out.println("Escreva o numero do Sus do paciente: " );
         String numeroSus = leia.nextLine();
