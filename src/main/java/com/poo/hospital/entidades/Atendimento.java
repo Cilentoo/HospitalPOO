@@ -17,6 +17,7 @@ public class Atendimento {
     private Paciente paciente;
     private Medico medico;
     private LocalDateTime dataHora;
+    private List <Exame> exames;
 
     private static List<Atendimento> atendimentoList = new ArrayList<>();
 
@@ -25,6 +26,11 @@ public class Atendimento {
         contadorId ++;
         this.paciente = paciente;
         this.medico = medico;
+        this.exames = new ArrayList<>(); 
+    }
+    
+    public Paciente getPaciente(){
+        return paciente;
     }
 
     public Atendimento(){
@@ -33,7 +39,6 @@ public class Atendimento {
     }
 
     //registrando manualmente o atendimento
-
     public static void registroAtendimento(){
         Atendimento atendimento = new Atendimento();
         System.out.println("Registrando atendimento: ");
@@ -63,8 +68,16 @@ public class Atendimento {
             System.out.println("Nome do paciente: " + atendimento.getPaciente().getNome());
             System.out.println("Nome do médico: " + atendimento.getMedico().getNome());
             System.out.println("Data e hora: " + atendimento.getDataHora());
-
-
         }
     }
+
+    public static List<Atendimento> getAtendimentoPorPaciente(Paciente paciente){
+        List<Atendimento> atendimentoPaciente = new ArrayList<>();
+        for(Atendimento atendimento : atendimentoList){
+            if (atendimento.getPaciente().equals(paciente)){
+                atendimentoPaciente.add(atendimento);
+            }
+        }
+        return atendimentoPaciente;
+    } 
 }
