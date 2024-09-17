@@ -96,4 +96,13 @@ public class Medico extends Pessoa implements Prontuario {
         
     }
 
+    public static Medico getMedicoPorEmail(String email){
+        for (Medico medico : medicoList) {
+            if (medico.getLogin().equals(email)){
+                return medico;
+            }
+        }
+        return null; 
+    }
+
 }

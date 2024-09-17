@@ -59,13 +59,12 @@ public class Atendimento {
         paciente.setNome(nomePaciente);
         atendimento.setPaciente(paciente);
         
-
-        System.out.println("Digite o nome do médico: ");
-        String nomeMedico = leia.nextLine();
-        Medico medico = new Medico();
-        medico.setNome(nomeMedico);
-        Medico.getMedicoList().add(medico);
-        atendimento.setMedico(medico);
+        Medico medicoLogado = Medico.getMedicoPorEmail(Menu.getUsuarioLogado());
+        if (medicoLogado != null){
+            atendimento.setMedico(medicoLogado);
+        }else {
+            System.out.println("Erro. Medico não encontrado.");
+        }
 
         atendimento.setDataHora(LocalDateTime.now());
 

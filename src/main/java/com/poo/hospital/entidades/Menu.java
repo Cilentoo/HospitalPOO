@@ -2,10 +2,13 @@ package com.poo.hospital.entidades;
 
 import com.poo.hospital.entidades.controladores.Prontuario;
 
+import lombok.Getter;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
+    @Getter
     private static String usuarioLogado = null;
     private static String funcaoUsuario = null;
     private static String nomePaciente = null;
