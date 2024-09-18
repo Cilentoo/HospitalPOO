@@ -20,9 +20,11 @@ public class MedicoEspecialista extends Pessoa {
 
     public static List <MedicoEspecialista> eList = new ArrayList<>();
 
-    public static List<MedicoEspecialista> geteList() {
+    public static List<MedicoEspecialista> geteList(){
         return eList;
+
     }
+
 
     public static void analisarExame(){
         System.out.println("\n=============================================");
@@ -34,30 +36,51 @@ public class MedicoEspecialista extends Pessoa {
         System.out.println("\n---------------------------------------------");
         System.out.println("|          Exame analisado econcluído!        |");
         System.out.println("=============================================\n");
-}
+    }
     public static void imprimirLaudo (String laudo, int idExame){
         Exame exameEncontrado = null;
-        for (Exame e: Exame.exameList){
-            if (e.getId()==idExame){exameEncontrado = e;
+        for (Exame e : Exame.getExameList()){
+            if (e.getId() == idExame){
+                exameEncontrado = e;
                 break;
-
-
             }
         }
-        if (exameEncontrado == null) {System.out.println("exame não encontrado"); 
-        return;
-    }   System.out.println("laudo do exame");
-        System.out.println("medico solicitante: " + exameEncontrado.getMedicoSolicitante().getNome());
-        System.out.println("medico responsável pelo laudo: " + exameEncontrado.getMedicoLaudo().getNome());
-        System.out.println("especialidade: " + exameEncontrado.getMedicoLaudo().getEspecialidade());
-        System.out.println("descrição: " + exameEncontrado.getDescricao());
-        System.out.println("digite laudo do exame: ");
+        if (exameEncontrado == null) {
+            System.out.println("exame não encontrado");
+            return;
+        }
+        System.out.println("Laudo do exame");
+        System.out.println("Medico solicitante: " + exameEncontrado.getMedicoSolicitante().getNome());
+        System.out.println("Medico responsável pelo laudo: " + exameEncontrado.getMedicoLaudo().getNome());
+        System.out.println("Especialidade: " + exameEncontrado.getMedicoLaudo().getEspecialidade());
+        System.out.println("Descrição: " + exameEncontrado.getDescricao());
+        System.out.println("Digite laudo do exame: ");
         Scanner leia = new Scanner(System.in);
         String laudoEspecialista = leia.nextLine();
-        exameEncontrado.setLaudo(laudoEspecialista); 
+        exameEncontrado.setLaudo(laudoEspecialista);
+        System.out.println("Laudo Concluído.");
             
-        } 
-        
     }
+
+    public static void listarExamesPendentes(){
+        System.out.println("\n===================================");
+        System.out.println("|        * LISTA DE EXAMES PENDENTES *      |");
+        System.out.println("======================================");
+
+        boolean temExamesPendentes = false;
+
+        for (Exame exame : Exame.getExameList()){
+            if (exame.getStatus() == Status.PENDENTE){
+                temExamesPendentes = true;
+                System.out.println("Exame referente ao Id: " + exame.getId() + exame.getDescricao() +" Pendente.");
+            }
+        }
+        if (!temExamesPendentes){
+            System.out.println("Nenhum exame pendente de laudo encontrado");
+        }
+    }
+
+
+}
 
 

@@ -4,6 +4,7 @@ import com.poo.hospital.entidades.controladores.Prontuario;
 
 import lombok.Getter;
 
+import java.sql.SQLOutput;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -144,20 +145,22 @@ public class Menu {
                     case 2:
                         if (funcaoUsuario.equals("Medico")) {
                             Atendimento.registroAtendimento();
-                        } else if (funcaoUsuario.equals("Medico especialista")) {
-                            System.out.println("REGISTRANDO LAUDO");
+                        } else if (funcaoUsuario.equals("Medico Especialista")) {
+                            System.out.println("Digite o id do exame: ");
+                            int idExame = leia.nextInt();
+                            MedicoEspecialista.imprimirLaudo(null, idExame);
                         }
                         break;
                     case 3:
                         if (funcaoUsuario.equals("Medico")) {
                             Medico.solicitarExame();
-                        } else if (funcaoUsuario.equals("Medico especialista")) {
-                            System.out.println("Listando exames pendentes");
+                        } else if (funcaoUsuario.equals("Medico Especialista")) {
+                            MedicoEspecialista.listarExamesPendentes();
                         }
                         break;
                     case 4:
                         if (funcaoUsuario.equals("Medico")) {
-                            Atendimento.getAtendimentoList();
+                            Atendimento.listarAtendimento();
                         }
                         break;
                     case 0:

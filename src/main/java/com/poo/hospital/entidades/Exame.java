@@ -11,6 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Exame {
+    public static int contadorId = 1;
 
     private Status status;
     private Medico medicoSolicitante;
@@ -21,6 +22,10 @@ public class Exame {
     
     public static List <Exame> exameList = new ArrayList<Exame> ();
 
+    public Exame(){
+        this.id = contadorId;
+        contadorId++;
+    }
 
     public static List<Exame> getExameList() {
         return exameList;

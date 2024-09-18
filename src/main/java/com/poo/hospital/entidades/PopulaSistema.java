@@ -48,6 +48,7 @@ public class PopulaSistema {
     me1.setEspecialidade("Ortopedista");
     me1.setLogin("lc@gmail.com");
     me1.setSenha("123");
+    MedicoEspecialista.geteList().add(me1);
 
     // Criando atendimentos
     Atendimento atendimento1 = new Atendimento(Atendimento.contadorId, paciente1, medico1);
@@ -67,11 +68,17 @@ public class PopulaSistema {
     // Criando exames
     Exame exame1 = new Exame();
     exame1.setMedicoSolicitante(medico1);
+    exame1.setMedicoLaudo(me1);
+    exame1.setDescricao("Raio-X do pé");
     exame1.setStatus(Status.PENDENTE);
+    Exame.exameList.add(exame1);
 
     Exame exame2 = new Exame();
     exame2.setMedicoSolicitante(medico2);
+    exame2.setMedicoLaudo(me1);
+    exame2.setDescricao("Raio-X da canela");
     exame2.setStatus(Status.CONCLUIDO);
+    Exame.exameList.add(exame2);
 
     // Adicionando exames aos atendimentos
     atendimento1.getExames().add(exame1);
