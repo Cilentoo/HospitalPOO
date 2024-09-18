@@ -16,31 +16,23 @@ public class Paciente extends Pessoa implements Prontuario {
 
     private static List<Paciente> pacienteList = new ArrayList<Paciente>();
 
-
     @Override
     public void imprimirProntuario() {
-        Scanner leia = new Scanner(System.in);
-        System.out.println("Digite o numero da carteira do SUS: ");
-        String numeroDoSus = leia.nextLine();
-        Paciente paciente = Paciente.buscarCarteiraDoSus(numeroDoSus);
-            if (numeroDoSus != carteiraSus){
-                System.out.println(" \n Numero do Sus incorreto, Escolha novamente opção e digite o numero de acordo com sua carteirinha");
-            }
+        Paciente paciente = Paciente.getPacientePorEmail(Menu.getUsuarioLogado());
 
-        
-        if (paciente != null){
+        if (paciente != null) {
             System.out.println("=============================================");
             System.out.println("|           PRONTUÁRIO DO PACIENTE           |");
             System.out.println("=============================================");
             System.out.println("| Nome do Paciente       | " + paciente.getNome());
             System.out.println("| Número da Carteira SUS | " + paciente.getCarteiraSus());
             System.out.println("=============================================");
-            List <Atendimento> atendimentos = Atendimento.getAtendimentoPorPaciente(paciente);
+            List<Atendimento> atendimentos = Atendimento.getAtendimentoPorPaciente(paciente);
 
-            if (!atendimentos.isEmpty()){
+            if (!atendimentos.isEmpty()) {
                 System.out.println("|               ATENDIMENTOS                 |");
                 System.out.println("=============================================");
-                for (Atendimento atendimento : atendimentos){
+                for (Atendimento atendimento : atendimentos) {
                     System.out.println("| ID do Atendimento      | " + atendimento.getId());
                     System.out.println("| Médico Responsável     | " + atendimento.getMedico().getNome());
                     System.out.println("| Data do Atendimento    | " + atendimento.getDataHora());
@@ -48,10 +40,11 @@ public class Paciente extends Pessoa implements Prontuario {
 
                     System.out.println("|                 EXAMES                    |");
                     System.out.println("=============================================");
-                    for (Exame exame : atendimento.getExames()){
+                    for (Exame exame : atendimento.getExames()) {
                         System.out.println("| Exame Solicitado por   | " + exame.getMedicoSolicitante().getNome());
-                        System.out.println("| Especialista Laudo     | " + 
-                            (exame.getMedicoLaudo().getNome() != null ? exame.getMedicoLaudo().getNome() : "Aguardando Laudo"));
+                        System.out.println("| Especialista Laudo     | " +
+                                (exame.getMedicoLaudo().getNome() != null ? exame.getMedicoLaudo().getNome()
+                                        : "Aguardando Laudo"));
                         System.out.println("| Status do Exame        | " + exame.getStatus());
                         System.out.println("---------------------------------------------");
                     }
@@ -59,22 +52,31 @@ public class Paciente extends Pessoa implements Prontuario {
                 }
 
             }
-            
+
         }
     }
 
-    public static List<Paciente> getPacienteList(){
-        return  pacienteList;
+    public static List<Paciente> getPacienteList() {
+        return pacienteList;
     }
-    //teste
+    // teste
 
-    public static Paciente buscarCarteiraDoSus (String numeroSus){
+    public static Paciente buscarCarteiraDoSus(String numeroSus) {
 
-        for (Paciente paciente: pacienteList){
+        for (Paciente paciente : pacienteList) {
             if (paciente.getCarteiraSus().equals(numeroSus)) {
-               return paciente; 
+                return paciente;
             }
 
+        }
+        return null;
+    }
+
+    public static Paciente getPacientePorEmail(String email) {
+        for (Paciente paciente : pacienteList) {
+            if (paciente.getLogin().equals(email)) {
+                return paciente;
+            }
         }
         return null;
     }
