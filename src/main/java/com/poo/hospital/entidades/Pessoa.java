@@ -27,4 +27,12 @@ public abstract class Pessoa {
         this.telefone = telefone;
         this.endereco = endereco;
     }
+
+    private boolean validarCPF(String cpf) {
+        if (cpf.length() != 11) {
+            return false;
+        }else {
+            return true;
+        }
+    }
 }

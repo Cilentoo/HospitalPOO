@@ -79,4 +79,12 @@ public class Paciente extends Pessoa implements Prontuario {
         }
         return null;
     }
+
+    private boolean validarCartaoSus(String carteiraSus) {
+        if (carteiraSus.length() != 15) {
+            return false;
+        }else {
+            return true;
+        }
+    }
 }
