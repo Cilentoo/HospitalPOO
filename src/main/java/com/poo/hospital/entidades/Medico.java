@@ -28,6 +28,9 @@ public class Medico extends Pessoa implements Prontuario {
         System.out.println("Digite o numero da carteira do SUS: ");
         String numeroDoSus = leia.nextLine();
         Paciente paciente = Paciente.buscarCarteiraDoSus(numeroDoSus);
+            if (numeroDoSus != paciente.getCarteiraSus()){
+                System.out.println(" \n Numero do Sus incorreto, Escolha novamente opção e digite o numero de acordo com sua carteirinha");
+            }
         
         if (paciente != null){
             System.out.println("=============================================");
@@ -104,5 +107,5 @@ public class Medico extends Pessoa implements Prontuario {
         }
         return null; 
     }
-
+    
 }
