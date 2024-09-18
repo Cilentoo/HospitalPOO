@@ -138,7 +138,7 @@ public class Menu {
                         } else if (funcaoUsuario.equals("Medico")) {
                             Medico medico = new Medico();
                             medico.imprimirProntuario();
-                        } else if (funcaoUsuario.equals("Medico especialista")) {
+                        } else if (funcaoUsuario.equals("Medico Especialista")) {
                             MedicoEspecialista.analisarExame();
                         }
                         break;
@@ -148,7 +148,7 @@ public class Menu {
                         } else if (funcaoUsuario.equals("Medico Especialista")) {
                             System.out.println("Digite o id do exame: ");
                             int idExame = leia.nextInt();
-                            MedicoEspecialista.imprimirLaudo(null, idExame);
+                            MedicoEspecialista.registrarLaudo(null, idExame);
                         }
                         break;
                     case 3:
