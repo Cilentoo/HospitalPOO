@@ -7,7 +7,7 @@ import com.poo.hospital.entidades.enums.Status;
 public class PopulaSistema {
 
     public static void populaDados() {
-         // Criando alguns pacientes
+        // Criando alguns pacientes
     Paciente paciente1 = new Paciente();
     paciente1.setNome("Carlos Souza");
     paciente1.setCarteiraSus("123456789");

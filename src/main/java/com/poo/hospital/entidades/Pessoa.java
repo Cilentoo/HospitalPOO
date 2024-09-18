@@ -18,7 +18,7 @@ public abstract class Pessoa {
 
     public Pessoa(){
     }
-//teste
+
     public Pessoa(String nome, String login, String senha, String cpf, String telefone, Endereco endereco) {
         this.nome = nome;
         this.login = login;

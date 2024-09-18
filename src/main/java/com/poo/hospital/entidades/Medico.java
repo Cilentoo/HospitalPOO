@@ -17,11 +17,6 @@ public class Medico extends Pessoa implements Prontuario {
 
     private static List<Medico> medicoList = new ArrayList<Medico>();
 
-    //registrando atendimento
-    public static void registraAtendimento(){
-
-    }
-
     @Override
     public void imprimirProntuario() {
         Scanner leia = new Scanner(System.in);
