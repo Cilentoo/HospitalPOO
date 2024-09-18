@@ -49,8 +49,8 @@ public class Medico extends Pessoa implements Prontuario {
                     System.out.println("=============================================");
                     for (Exame exame : atendimento.getExames()){
                         System.out.println("| Exame Solicitado por   | " + exame.getMedicoSolicitante().getNome());
-                        System.out.println("| Especialista Laudo     | " + 
-                            (exame.getMedicoLaudo() != null ? exame.getMedicoLaudo() : "Aguardando Laudo"));
+                        System.out.println("| Especialista Laudo     | " +
+                            (exame.getMedicoLaudo() != null ? exame.getMedicoLaudo().getNome() : "Aguardando Laudo"));
                         System.out.println("| Status do Exame        | " + exame.getStatus());
                         System.out.println("---------------------------------------------");
                     }
